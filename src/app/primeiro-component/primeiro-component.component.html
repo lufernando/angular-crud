@@ -1,0 +1,46 @@
+
+    <fieldset>
+        <legend>Cadastro de Pessoa</legend>
+        <div>
+      Nome
+        <input type="text" [(ngModel)]="pessoa.nome"/>
+        </div>
+
+        <div>
+      Sobrenome
+        <input type="text" [(ngModel)]="pessoa.sobrenome"/>
+        </div>
+      Sexo
+        <select [(ngModel)]="pessoa.sexo">
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+        </select>
+
+        <div>
+        <button (click)="salvar()" >Salvar</button>
+        </div>
+
+    </fieldset>
+
+
+<table>
+  <thead>
+    <tr>
+      <td>Identificador</td>
+      <td>Nome</td>
+      <td>Sobrenome</td>
+      <td>Sexo</td>
+      <td>Ações</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pessoa of pessoas">
+      <td>{{pessoa.id}}</td>
+      <td>{{pessoa.nome}}</td>
+      <td>{{pessoa.sobrenome}}</td>
+      <td>{{pessoa.sexo}}</td>
+      <td><button (click)="excluir(pessoa.id)">Excluir</button></td>
+      <td><button (click)="alterar()">Alterar</button></td>
+    </tr>
+  </tbody>
+</table>
